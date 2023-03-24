@@ -1,0 +1,27 @@
+<div class="listagem-produto" *ngIf="carregado">
+  <h3>Produtos</h3>
+  <!-- Exemplo de Diretiva Estrutural: *ngFor e ngClass-->
+  <!-- Exemplo de Vinculação de Evento: (click) -->
+  <div
+    class="card"
+    *ngFor="let produto of produtos; let i = index"
+    [ngClass]="{ selecionado: produto.selecionado }"
+    (click)="adicionarProduto(i)"
+  >
+    <!-- Exemplo de Vinculação de Propriedade: [src] -->
+    <img [src]="produto.imagem" [alt]="produto.nome" />
+    <div class="detalhes">
+      <!-- Exemplo de interpolação: {{ produto.nome }}-->
+      <span class="nome-produto">{{ produto.nome }}</span>
+      <!-- Exemplo Pipe: | currency -->
+      <span class="valor-produto">{{ produto.valor | currency: 'R$' }}</span>
+    </div>
+  </div>
+  <div class="totalizador">
+    <span> {{ totalizador | currency: 'R$' }} </span>
+  </div>
+  <a class="btn-adicionar-carrinho indisponivel" (click)="checkout()">
+    Adicionar ao carrinho
+    <i class="material-icons">add_shopping_cart</i>
+  </a>
+</div>
