@@ -14,6 +14,11 @@ const routes: Routes = [
         (m) => m.ListagemProdutoModule
       ),
   },
+	{
+		path: 'contato',
+		loadChildren: () =>
+			import('./contato/contato.module').then((m) => m.ContatoModule),	
+	},
   { path: '**', redirectTo: 'home' },
 ];
 
