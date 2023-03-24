@@ -16,8 +16,7 @@ const routes: Routes = [
   },
 	{
 		path: 'contato',
-		loadChildren: () =>
-			import('./contato/contato.module').then((m) => m.ContatoModule),	
+		loadChildren: () =>	import('./contato/contato.module').then((m) => m.ContatoModule),	
 	},
   { path: '**', redirectTo: 'home' },
 ];
